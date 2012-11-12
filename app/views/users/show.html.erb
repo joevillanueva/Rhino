@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @user.name %>
+</p>
+
+<p>
+  <b>Username:</b>
+  <%= @user.username %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @user.email %>
+</p>
+
+<p>
+<!--   <b>Password digest:</b>
+  <%#= @user.password_digest %>  
+
+  # [20] You'll notice another hash at the end of the % here again.  Do you remember why?  Moving on, we are deleting this we don't want to show a user's password on their profile page! 
+
+  # [21] Now lets head to: your_app_name/config/routes.rb -->
+</p>
+
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

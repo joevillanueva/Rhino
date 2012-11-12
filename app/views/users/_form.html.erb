@@ -1,0 +1,38 @@
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :username %><br />
+    <%= f.text_field :username %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <!-- <%#= f.label :password_digest %><br />   [11] Comment this line out.  This is the label for the scrambled password that we don't want to show. You might notice that there is a hashtag after the typical Ruby syntax.  We include that because without it, the code here is only partially commented out - the Ruby code will still run, so we include the hashtag to break up that code and make it not run! We'll be adding an adjust version of this original line below. -->
+    <!-- <%#= f.text_field :password_digest %>    [12] Comment this line out.  This is the text field for the scrambled password that we don't want to show. -->
+    <%= f.label :password %><br /> <!-- [13] Add this line.  We still want the user to have to input their password, so this is the label for the password field. We change it from :password_digest to :password so that bcrypt can take the password you enter, hash it, and save it as :password_digest -->
+    <%= f.password_field :password %> <!-- [14] Add this line.  This is where the user inputs their password. We change it from the old text_field to password_field to hide the password text when its being entered.  That way, if someone's looking over your shoulder, when you're typing it in, they won't see your actual password! -->
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation %> <!-- [15] -->
+    <!-- [16] Now lets head to: your_app_name/app/views/model_name/index.html.erb -->
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

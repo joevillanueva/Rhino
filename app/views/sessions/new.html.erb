@@ -1,0 +1,7 @@
+<%= form_tag session_url do %> <!-- # [38] This creates an html form that posts to session -->
+	<%= label_tag :email %> <%= text_field_tag :email %> <!-- # [39] This creates a label for the email field and creates the field to accept its input -->
+	<%= label_tag :password %> <%= password_field_tag :password %> <!-- # [40] This creates a label for the password field and creates the field to accept its input -->
+	<%= submit_tag 'Come on in!' %> <!-- # [41] This is the submit button that is title with the message 'Come on in!' -->
+<% end %> <!-- # [42] This ends the Ruby code block -->
+
+<%= link_to 'Logout', '/sessions/destroy' %> <!-- # [43] This is the link that allows a user to log out.  It ends the session via the destroy method in the  -->
